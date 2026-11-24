@@ -20,5 +20,6 @@
 - [ ] Corrigir idle do Naruto Sábio e sequência completa do Rasenshuriken.
 - [ ] Uniformizar Luffy Gear Second agachado e corrigir cabelo transparente ao comer.
 - [ ] Estabilizar corrida SSJ do Goku e remover o sprite estranho no início da carga Kaioken.
-- [ ] Adicionar a tela de seleção com Goku destacado do RAR.
+- [ ] Usar a tela de seleção do Goku enviada no chat.
+- [ ] Trocar somente a HUD do Luffy pela imagem transparente enviada no chat.
 - [ ] Testar visualmente todas as correções e rodar a suíte de testes.

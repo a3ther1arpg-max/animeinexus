@@ -61,7 +61,7 @@ export class Naruto extends Phaser.Physics.Arcade.Sprite {
       ['idle','sage_idle',ALL,7,-1], ['walk','sage_walk',ALL,10,-1], ['run','sage_run',ALL,14,-1],
       ['jump','sage_air',[1,2,3,4],12,0], ['fall','sage_air',[5],8,0], ['land','sage_air',[6,7],14,0],
       ['punch','sage_punch',ALL,18,0], ['charge-start','sage_charge_start',ALL,12,0], ['charge-loop','sage_charge_loop',ALL,12,-1],
-      ['rasen-charge','sage_rasen_charge',[0,1,2,3,4,5,6,7,8,9],14,0], ['rasen-throw','sage_rasen_throw',[0,1,2,3,4,5,6,7,8],14,0],
+      ['rasen-charge','sage_rasen_charge',[0,1,2,3,4,5,6,7,8],14,0], ['rasen-throw','sage_rasen_throw',[0,1,2,3,4,5],14,0],
     ] as const) make(`sage:${action}`, tex, [...frames], fps, repeat);
     make('naruto:sage-transform-a','sage_transform_a',ALL,12,0);
     make('naruto:sage-transform-b','sage_transform_b',ALL,12,0);
@@ -105,7 +105,7 @@ export class Naruto extends Phaser.Physics.Arcade.Sprite {
     this.syncAnchor();
 
     this.on(Phaser.Animations.Events.ANIMATION_UPDATE, (anim: Phaser.Animations.Animation, frame: Phaser.Animations.AnimationFrame) => {
-      if (this.action === 'rasen-throw' && frame.index === 7) this.emit('fire', this.x + this.facing * 65, this.y - 70, this.facing, 1, 'rasenshuriken');
+      if (this.action === 'rasen-throw' && frame.index === 2) this.emit('fire', this.x + this.facing * 65, this.y - 70, this.facing, 1, 'rasenshuriken');
       if (this.action === 'punch' && anim.key.endsWith(':punch') && frame.index === 5) this.melee(95, PUNCH_DAMAGE * this.dmgMult);
       if (this.action === 'ras-hit' && !this.hitDone && frame.index >= 5) {
         this.hitDone = true;

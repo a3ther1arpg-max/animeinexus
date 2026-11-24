@@ -28,7 +28,7 @@ describe("Character selection", () => {
     expect(image?.getAttribute("src")).toBe(SCREEN_IMAGES.select_naruto_new);
 
     fireEvent.click(view.getByRole("button", { name: "GOKU" }));
-    expect(image?.getAttribute("src")).toBe(SCREEN_IMAGES.select_new);
+    expect(image?.getAttribute("src")).toBe(SCREEN_IMAGES.select_goku_new);
 
     fireEvent.click(view.getByRole("button", { name: "LUFFY" }));
     expect(image?.getAttribute("src")).toBe(SCREEN_IMAGES.select_luffy);

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "e81e703a-e954-42e4-8cdd-5ffddfb9f5b0",
+  "asset_id": "50998e59-b7f1-4893-996c-b4cad44a8d2d",
   "project_id": "e5d38940-e8c2-4943-87de-ec4564da6f5c",
-  "url": "/__l5e/assets-v1/e81e703a-e954-42e4-8cdd-5ffddfb9f5b0/hud_luffy.png",
-  "r2_key": "a/v1/e5d38940-e8c2-4943-87de-ec4564da6f5c/e81e703a-e954-42e4-8cdd-5ffddfb9f5b0/hud_luffy.png",
+  "url": "/__l5e/assets-v1/50998e59-b7f1-4893-996c-b4cad44a8d2d/hud_luffy.png",
+  "r2_key": "a/v1/e5d38940-e8c2-4943-87de-ec4564da6f5c/50998e59-b7f1-4893-996c-b4cad44a8d2d/hud_luffy.png",
   "original_filename": "hud_luffy.png",
-  "size": 1206518,
-  "content_type": "image/png",
-  "created_at": "2026-11-24T05:29:42Z"
+  "size": 55734,
+  "content_type": "image/webp",
+  "created_at": "2026-11-24T06:13:05Z"
 }
