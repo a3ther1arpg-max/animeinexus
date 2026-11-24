@@ -14,4 +14,6 @@
 - [x] Adicionar Luffy base, Haki (K), Gear Second (G) e golpes específicos.
 - [x] Destransformar antes da morte; multiplayer com void, três mortes e revanche com seleção.
 - [x] Aplicar menu, seleção, mapa singleplayer e HUDs novos; preencher telas horizontais no celular.
+- [ ] Conferir as 37 imagens do RAR original contra os sprites e telas aplicados.
+- [ ] Aplicar qualquer tela, sprite ou animação do pacote que ainda esteja ausente ou incorreta.
 - [ ] Testar multiplayer online e revanche com dois aparelhos (precisa de duas pessoas).
