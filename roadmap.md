@@ -17,9 +17,11 @@
 - [x] Conferir as 37 imagens do RAR original contra os sprites e telas aplicados.
 - [x] Aplicar as telas de Naruto e Luffy destacados e trocar a arte conforme a seleção.
 - [x] Testar multiplayer online, void, três vidas e revanche em duas sessões independentes.
-- [ ] Corrigir idle do Naruto Sábio e sequência completa do Rasenshuriken.
-- [ ] Uniformizar Luffy Gear Second agachado e corrigir cabelo transparente ao comer.
-- [ ] Estabilizar corrida SSJ do Goku e remover o sprite estranho no início da carga Kaioken.
-- [ ] Usar a tela de seleção do Goku enviada no chat.
-- [ ] Trocar somente a HUD do Luffy pela imagem transparente enviada no chat.
+- [x] Aplicar a primeira correção do Rasenshuriken, corrida SSJ e início da carga Kaioken.
+- [x] Usar a tela de seleção do Goku e a HUD do Luffy enviadas no chat.
+- [ ] Recortar idle e transformação do Naruto Sábio sem duplicação, cortes ou tremulação.
+- [ ] Aplicar a nova sequência de Luffy comendo separadamente nas formas normal, Haki e Gear Second.
+- [ ] Corrigir os golpes de Haki e os dois estágios do ataque elástico no Gear Second.
+- [ ] Uniformizar o tamanho do Luffy com Haki e do Gear Second agachado.
+- [ ] Usar a logo enviada como ícone ao lado do nome do site.
 - [ ] Testar visualmente todas as correções e rodar a suíte de testes.
