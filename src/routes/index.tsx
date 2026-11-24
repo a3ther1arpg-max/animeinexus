@@ -78,9 +78,10 @@ export function CharacterPicker({ onPick, onBack, title }: { onPick: (c: Charact
   const [ch, setCh] = useState<CharacterId | null>(null);
   const step = (d: number) => setCh((c) => ROSTER[(ROSTER.indexOf(c ?? "goku") + d + ROSTER.length) % ROSTER.length] ?? "naruto");
   const hot = "absolute cursor-pointer";
+  const selectionImage = ch === "naruto" ? SCREEN_IMAGES.select_naruto_new : ch === "luffy" ? SCREEN_IMAGES.select_luffy : SCREEN_IMAGES.select_new;
   return (
     <Stage>
-      <img src={SCREEN_IMAGES.select_new} alt="Seleção de personagem" className="absolute inset-0 h-full w-full select-none" draggable={false} />
+      <img src={selectionImage} alt={ch ? `Seleção: ${NAMES[ch]} destacado` : "Seleção de personagem"} className="absolute inset-0 h-full w-full select-none" draggable={false} />
       {ROSTER.map((c) => (
         <button
           key={c}

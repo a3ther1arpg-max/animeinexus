@@ -36,7 +36,7 @@ import select_goku from './assets/select_goku.jpg.asset.json';
 import { UPDATE_ASSETS, updateAsset } from './updateAssets';
 
 export const FIGHTER_STRIPS: Record<string, string> = {
-  ...Object.fromEntries(Object.entries(UPDATE_ASSETS).filter(([key]) => !key.startsWith('touch_') && !['menu_new', 'select_new', 'select_luffy_new', 'training_new', 'hud_luffy'].includes(key))),
+  ...Object.fromEntries(Object.entries(UPDATE_ASSETS).filter(([key]) => !key.startsWith('touch_') && !['menu_new', 'select_new', 'select_luffy_new', 'select_naruto_highlight', 'select_luffy_highlight', 'training_new', 'hud_luffy'].includes(key))),
   naruto_idle: naruto_idle.url,
   naruto_walk: naruto_walk.url,
   naruto_run: naruto_run.url,
@@ -66,7 +66,8 @@ export const SCREEN_IMAGES = {
   menu: updateAsset('menu_new'),
   training: updateAsset('training_new'),
   select_new: updateAsset('select_new'),
-  select_luffy: updateAsset('select_luffy_new'),
+  select_naruto_new: updateAsset('select_naruto_highlight'),
+  select_luffy: updateAsset('select_luffy_highlight'),
   hud_luffy: updateAsset('hud_luffy'),
   touch_left: updateAsset('touch_left'),
   touch_right: updateAsset('touch_right'),
