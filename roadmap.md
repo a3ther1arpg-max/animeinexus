@@ -1,0 +1,17 @@
+- [x] Importar os sprites e animações da nova versão.
+- [x] Testar movimento, carga, tiros e transformações na prévia.
+- [x] Recortar e alinhar os cinco sprites enviados, preservando as demais ações.
+- [x] Verificar passos, Kaioken parado e as duas transformações no jogo.
+- [x] Recortar os movimentos de Kaioken e Sayajin e as novas sequências de carga de ki.
+- [x] Verificar movimentos, pulos e carga de ki no jogo, preservando tiros e transformações.
+- [x] Diminuir sprite do Naruto transformado (Kyubi)
+- [x] Corrigir desconexões e movimento sincronizado no online.
+- [x] Remover a colisão com o teto nos dois modos.
+- [x] Uniformizar o tamanho do Goku nas formas, cargas e reversões, inclusive online.
+- [x] Conferir movimento e ações por toque, visíveis somente no celular.
+- [ ] Integrar pacote novo: escalas do Goku, início de carga SSJ, movimentos e mortes.
+- [ ] Adicionar Naruto Sábio (K), Rasenshuriken e colisão imediata do Rasengan.
+- [ ] Adicionar Luffy base, Haki (K), Gear Second (G) e golpes específicos.
+- [ ] Destransformar antes da morte; multiplayer com void, três mortes e revanche com seleção.
+- [ ] Aplicar menu, seleção, mapa singleplayer e HUDs novos; preencher telas horizontais no celular.
+- [ ] Testar combate, multiplayer, revanche e proporções móveis.

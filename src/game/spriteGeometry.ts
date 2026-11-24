@@ -1,0 +1,25 @@
+/** Body-size corrections for mixed generated sheets and uploaded strips, excluding aura extents. */
+const TEXTURE_SCALE: Record<string, number> = {
+  ssj: 0.86,
+  kaioken: 0.84,
+  ssj_walk: 0.82,
+  ssj_run: 0.9,
+  ssj_charge_loop: 1,
+  // Medidos pela altura do corpo: carga do Kaioken e Kaioken parado ficam iguais.
+  kaioken_idle: 1.05,
+  kaioken_charge_loop: 0.92,
+  kaioken_charge_start: 1.08,
+  update_kaioken_walk: 0.96,
+  update_ssj_charge: 1,
+  naruto_kyubi_transform: 1,
+  naruto_kyubi_charge: 1,
+};
+
+export function spriteSizeCorrection(texture: string): number {
+  return TEXTURE_SCALE[texture] ?? (texture.startsWith('naruto_kyubi') ? 0.92 : 1);
+}
+
+/** Left/right stay bounded; the top is open in both modes. Multiplayer may fall below the arena. */
+export function worldBoundsCollision(mode: 'single' | 'multi'): [boolean, boolean, boolean, boolean] {
+  return [true, true, false, mode === 'single'];
+}
