@@ -9,9 +9,9 @@
 - [x] Remover a colisão com o teto nos dois modos.
 - [x] Uniformizar o tamanho do Goku nas formas, cargas e reversões, inclusive online.
 - [x] Conferir movimento e ações por toque, visíveis somente no celular.
-- [ ] Integrar pacote novo: escalas do Goku, início de carga SSJ, movimentos e mortes.
-- [ ] Adicionar Naruto Sábio (K), Rasenshuriken e colisão imediata do Rasengan.
-- [ ] Adicionar Luffy base, Haki (K), Gear Second (G) e golpes específicos.
-- [ ] Destransformar antes da morte; multiplayer com void, três mortes e revanche com seleção.
-- [ ] Aplicar menu, seleção, mapa singleplayer e HUDs novos; preencher telas horizontais no celular.
-- [ ] Testar combate, multiplayer, revanche e proporções móveis.
+- [x] Integrar pacote novo: escalas do Goku, início de carga SSJ, movimentos e mortes.
+- [x] Adicionar Naruto Sábio (K), Rasenshuriken e colisão imediata do Rasengan.
+- [x] Adicionar Luffy base, Haki (K), Gear Second (G) e golpes específicos.
+- [x] Destransformar antes da morte; multiplayer com void, três mortes e revanche com seleção.
+- [x] Aplicar menu, seleção, mapa singleplayer e HUDs novos; preencher telas horizontais no celular.
+- [ ] Testar multiplayer online e revanche com dois aparelhos (precisa de duas pessoas).

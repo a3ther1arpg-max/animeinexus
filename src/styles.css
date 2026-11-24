@@ -32,6 +32,7 @@
 @theme inline {
   --font-game: "Bangers", system-ui, sans-serif;
   --color-game-gold: var(--game-gold);
+  --color-overlay: var(--overlay);
   --color-game-red: var(--game-red);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -77,6 +78,7 @@
 
 :root {
   --game-gold: oklch(0.88 0.17 90);
+  --overlay: oklch(0.12 0.03 270 / 0.82);
   --game-red: oklch(0.55 0.21 28);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -180,4 +182,8 @@
   .game-btn-sm { font-size: 1rem; padding: 0.3em 0.9em; }
   .game-btn:hover, .game-btn-sm:hover { filter: brightness(1.15); transform: translateY(-2px); }
   .game-btn:active, .game-btn-sm:active { transform: translateY(2px); }
+}
+
+@layer components {
+  .select-glow { box-shadow: 0 0 0 4px var(--game-gold), 0 0 28px 8px var(--game-gold); }
 }

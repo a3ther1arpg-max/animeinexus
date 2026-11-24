@@ -11,7 +11,7 @@ describe('Fighter geometry', () => {
   it('reduces oversized Sayajin body and charge sheets while preserving normal Goku', () => {
     expect(spriteSizeCorrection('normal')).toBe(1);
     expect(spriteSizeCorrection('ssj')).toBe(0.86);
-    expect(spriteSizeCorrection('ssj_charge_loop')).toBe(0.82);
+    expect(spriteSizeCorrection('kaioken_charge_start')).toBe(1.08);
   });
   it('reverses the aligned transformation strips instead of using oversized aura sheets', () => {
     expect(SPRITE_OVERRIDES.find((s) => s.keys.includes('ssj:revert'))?.frames).toEqual([7, 6, 5, 4, 3, 2, 1, 0]);
