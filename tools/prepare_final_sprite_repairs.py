@@ -74,20 +74,17 @@ def isolated_row(
         main_area = int(np.count_nonzero(labels == main_id))
         keep = labels == main_id
         if separate_aura:
-            # Restore outlines/highlights attached to the selected colored body only.
-            keep = ndimage.binary_dilation(keep, iterations=10) & (pixels[:, :, 3] > 12)
-            white_labels, _ = ndimage.label(
-                (pixels[:, :, 3] > 12) & (saturation < 0.22) & (maximum > 140),
-                structure=np.ones((3, 3)),
-            )
-            for white_id, bounds in enumerate(ndimage.find_objects(white_labels), start=1):
-                if bounds is None:
-                    continue
-                ys, xs = bounds
-                distance_x = max(main_x.start - xs.stop, xs.start - main_x.stop, 0)
-                distance_y = max(main_y.start - ys.stop, ys.start - main_y.stop, 0)
-                if distance_x <= 60 and distance_y <= 60:
-                    keep |= white_labels == white_id
+            # Keep the complete central fighter, including outlines and extended limbs.
+            # Steam outside this body box often belongs to the neighboring poses.
+            keep[:] = False
+            x0, x1 = max(0, main_x.start - 14), min(cell.width, main_x.stop + 14)
+            y0, y1 = max(0, main_y.start - 60), min(cell.height, main_y.stop + 20)
+            keep[y0:y1, x0:x1] = pixels[y0:y1, x0:x1, 3] > 12
+            residue_labels, residue_count = ndimage.label(keep, structure=np.ones((3, 3)))
+            for residue_id in range(1, residue_count + 1):
+                residue = residue_labels == residue_id
+                if np.count_nonzero(residue) < 120:
+                    keep[residue] = False
         else:
             for label_id, bounds in enumerate(objects, start=1):
                 if label_id == main_id or bounds is None:
@@ -151,6 +148,7 @@ def build_strip(
     reference_index: int = 0,
     reference_mode: str = "plain",
     target_body_height: float = 180,
+    align_each: bool = False,
 ) -> None:
     reference = cells[reference_index]
     anchor_x, feet_y, body_height = reference_anchor(reference, reference_mode)
@@ -158,6 +156,8 @@ def build_strip(
         scale = target_body_height / body_height
     strip = Image.new("RGBA", (W * len(cells), H))
     for index, cell in enumerate(cells):
+        if align_each:
+            anchor_x, feet_y, _ = reference_anchor(cell, reference_mode)
         resized = cell.resize(
             (max(1, round(cell.width * scale)), max(1, round(cell.height * scale))),
             Image.Resampling.LANCZOS,
@@ -210,8 +210,9 @@ def main() -> None:
 
     # Gear Second's elastic attack is the lower row; steam is not used as body height.
     elastic_sheet = open_source("Sprite Sheet do Golpe Elástico do Luffy.png")
-    elastic = isolated_row(elastic_sheet, 8, 444, 887, padding=0.75, separate_aura=True)
-    build_strip(elastic, destination / "luffy_gear_elastic.png", reference_mode="colored")
+    elastic_bounds = [(0, 285), (285, 540), (540, 760), (760, 970), (970, 1160), (1160, 1360), (1360, 1555), (1555, 1774)]
+    elastic = [elastic_sheet.crop((left, 500, right, 840)) for left, right in elastic_bounds]
+    build_strip(elastic, destination / "luffy_gear_elastic.png", reference_mode="colored", align_each=True)
 
     # This is the actual eight-pose idle sheet, not the jump/charge sheet.
     sage_idle = isolated_row(open_source("Naruto Modo Sábio em Animação Pixel Art.png"), 8, 0, 724, padding=0.65)

@@ -4,8 +4,13 @@ import { PowerState } from '../forms';
 import { OVERRIDE_ANCHOR } from '../spriteOverrides';
 import { LUFFY_ATTACKS } from '../combatRules';
 import { SCALE } from './Player';
-
-type LuffyForm = 'normal' | 'haki' | 'gear';
+import {
+  LUFFY_CHARGE_FRAMES,
+  LUFFY_CHARGE_TEXTURES,
+  LUFFY_GEAR_SPECIAL_A_FRAMES,
+  LUFFY_GEAR_SPECIAL_B_FRAMES,
+  type LuffyForm,
+} from '../luffyAnimationRules';
 type Action = 'none' | 'punch' | 'special-a' | 'special-b' | 'transform-a' | 'transform-b';
 const ALL = [0,1,2,3,4,5,6,7];
 export class Luffy extends Phaser.Physics.Arcade.Sprite {
@@ -29,14 +34,17 @@ export class Luffy extends Phaser.Physics.Arcade.Sprite {
       make(`${p}:jump`,`${p}_air`,[1,2,3,4],12);
       make(`${p}:fall`,`${p}_air`,[5,6],8);
       make(`${p}:punch`,`${p}_punch`,ALL,18);
-      make(`${p}:charge`,'luffy_charge',ALL,10,-1);
+    }
+    for (const form of ['normal', 'haki', 'gear'] as const) {
+      const prefix = form === 'normal' ? 'luffy' : `luffy_${form}`;
+      make(`${prefix}:charge`, LUFFY_CHARGE_TEXTURES[form], LUFFY_CHARGE_FRAMES, 10, -1);
     }
     make('luffy:special-a','luffy_bazooka_a',ALL,14);
     make('luffy:special-b','luffy_bazooka_b',ALL,16);
     make('luffy_haki:special-a','luffy_haki_gatling_a',ALL,15);
     make('luffy_haki:special-b','luffy_haki_gatling_b',ALL,13);
-    make('luffy_gear:special-a','luffy_gear_elastic',[0,1,2],14);
-    make('luffy_gear:special-b','luffy_gear_elastic',[3,4,5,6,7],14);
+    make('luffy_gear:special-a','luffy_gear_elastic',LUFFY_GEAR_SPECIAL_A_FRAMES,14);
+    make('luffy_gear:special-b','luffy_gear_elastic',LUFFY_GEAR_SPECIAL_B_FRAMES,14);
     make('luffy:transform-haki','luffy_haki_transform',ALL,12);
     make('luffy:transform-gear-a','luffy_gear_transform_a',ALL,12);
     make('luffy:transform-gear-b','luffy_gear_transform_b',ALL,12);
