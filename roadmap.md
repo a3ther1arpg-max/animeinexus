@@ -25,3 +25,8 @@
 - [x] Uniformizar o tamanho do Luffy com Haki e do Gear Second agachado.
 - [x] Usar a logo enviada como ícone ao lado do nome do site.
 - [x] Testar visualmente todas as correções e rodar a suíte de testes.
+- [ ] Alinhar barras de vida/energia com a arte da HUD do Luffy.
+- [ ] Luffy parado (sem deslizar) enquanto come, nas três formas; tiras de comer sem tremulação.
+- [ ] Naruto idle sem deslizar/mexer sozinho; Rasenshuriken sem corte nem tremulação.
+- [ ] Gear Second: Q e E sem bugs; início da transformação sem encolher.
+- [ ] K do Luffy: soco precisa sair.

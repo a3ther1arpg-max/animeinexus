@@ -3,10 +3,13 @@ import type { CharacterId } from '../net';
 
 /** Interior das barras no painel original (px): [topo esq, topo dir, base esq, base dir], y topo/base. */
 type Bar = { y0: number; y1: number; tl: number; tr: number; bl: number; br: number };
-const GEOMETRY: Record<CharacterId, { hp: Bar; en: Bar }> = {
+const GEOMETRY: Record<CharacterId, { hp: Bar; en: Bar; panelW?: number; top?: number }> = {
+  // Medido na arte hud_luffy (1920x639, área transparente acima de y=142).
   luffy: {
-    hp: { y0: 303, y1: 412, tl: 613, tr: 2070, bl: 560, br: 2000 },
-    en: { y0: 475, y1: 573, tl: 510, tr: 1925, bl: 443, br: 1856 },
+    panelW: 1920,
+    top: 130,
+    hp: { y0: 287, y1: 330, tl: 377, tr: 1822, bl: 350, br: 1786 },
+    en: { y0: 369, y1: 411, tl: 332, tr: 1735, bl: 308, br: 1699 },
   },
   naruto: {
     hp: { y0: 167, y1: 217, tl: 410, tr: 1940, bl: 380, br: 1893 },
@@ -28,10 +31,12 @@ export class Hud {
   flash = 0;
 
   constructor(scene: Phaser.Scene, private ch: CharacterId, private x: number, private y: number, width: number) {
-    this.s = width / (ch === 'luffy' ? 2172 : PANEL_W);
+    const geo = GEOMETRY[ch];
+    this.s = width / (geo.panelW ?? PANEL_W);
+    this.y = y - (geo.top ?? 0) * this.s;
+    y = this.y;
     this.g = scene.add.graphics().setDepth(32.5).setScrollFactor(0);
     scene.add.image(x, y, `hud_${ch}`).setOrigin(0).setScale(this.s).setDepth(32).setScrollFactor(0);
-    const geo = GEOMETRY[ch];
     const style = { fontFamily: 'monospace', fontSize: '11px', color: '#ffffff', fontStyle: 'bold' };
     const label = (b: Bar) =>
       scene.add
